@@ -30,7 +30,9 @@
 - ORM：Spring Data JPA + Hibernate
 
 ### 其他
-- 認證方式：**JWT**（請補充：Access Token 有效期、是否使用 Refresh Token、Token 儲存位置如 HttpOnly Cookie 或 LocalStorage）
+- 認證方式：**JWT**
+  - 詳細規格請參考 PRD 中「4.1 會員系統」的 JWT 認證需求
+  - 主要原則為：Access Token / Refresh Token 分離、HttpOnly Cookie 儲存、HS256（MVP）、Refresh Token 需後端雜湊儲存並支援輪替與撤銷
 - 部署環境：（例如 Docker / K8s / 內部伺服器）
 
 ## 目錄結構
@@ -94,16 +96,6 @@ mvn test
 2. 完成一個功能即進行對應測試，確認無誤後再進行下一項
 3. Commit message 慣例：（請填寫，例如遵循 Conventional Commits）
 
-## 目前不做的事（Out of Scope）
-
-- 真人營養師諮詢/媒合功能
-- AI 生成菜單（本期採規則式計算，AI 為後續規劃方向）
-- 社群/分享功能
-- 付費訂閱/金流串接
-- 原生 App（本期僅網頁）
-
 ## 待確認事項 / 已知限制
 
 - Java 8 限制了可用的 Spring Boot 與部分第三方套件版本，新增依賴前請先確認相容性
-- JWT 相關細節待補：Access Token / Refresh Token 有效期、簽章演算法（建議 HS256 或 RS256）、Token 存放位置與 CSRF 防護策略
-- （其他待確認事項，請補充）
